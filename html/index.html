@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no'>
+		<link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/css.css" />
+		<script src="../lib/vue.min.js" type="text/javascript"></script>
+		<script src="../lib/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet"  href="../images/ks1.png">
+		<title>酷米商城</title>
+	</head>
+
+	<body>
+		<div id="app">
+			<router-view></router-view>
+			<!--底部导航-->
+			<div id="nav">
+			<ul class="nav nav-pills">
+				<li>
+					<a v-on:click="show(0)"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> 首页</a>
+				</li>
+				<li >
+					<a v-on:click="show(1)"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> 精选</a>
+				</li>
+				<li>
+					<a v-on:click="show(2)"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> 交流</a>
+				</li>
+				<li>
+					<a v-on:click="show(3)"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 我的</a>
+				</li>
+			</ul>
+			</div>
+		</div>
+		<!--视图-->
+		<!--第一个界面-->
+		<script type="text/x-template" id='home'>
+			<div>
+				<!--头部-->
+				<div id="header">
+					<img src="../images/k2.png" style="position:relative; left: -110px; top: 5px;"/>
+					<span style="position:relative; left: -10px; top: 5px;"><strong>酷米商城</strong></span>
+
+					<nav class="navbar navbar-default navbar-fixed-top">
+						<div class="container-fluid">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<img src="../images/k2.png" style="position:relative; left: -160px; top: 10px;"/>
+								<a class="navbar-brand" href="#"><span style="position:relative; left: 130px; "><strong>酷米商城</strong></span></a>
+							</div>
+
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li class="active"><a href="#">品质优选 <span class="sr-only">(current)</span></a></li>
+									<li><a href="#">有你喜欢</a></li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">历史记录 <span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li><a href="#">美食</a></li>
+											<li><a href="#">游玩</a></li>
+											<li><a href="#">欢乐购</a></li>
+
+										</ul>
+									</li>
+								</ul>
+								<form class="navbar-form navbar-left">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="酷米搜" v-model="query">
+									</div>
+									<button type="submit" class="btn btn-default" v-on:click="search">搜索</button>
+								</form>
+								<ul class="nav navbar-nav navbar-right">
+
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">关于理财 <span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li><a href="#">股票</a></li>
+											<li><a href="#">证券交易</a></li>
+											<li><a href="#">酷米信用</a></li>
+
+										</ul>
+									</li>
+									<li><a href="#">小提示</a></li>
+								</ul>
+							</div><!-- /.navbar-collapse -->
+						</div><!-- /.container-fluid -->
+					</nav>
+
+
+				</div>
+				<!--轮播图-->
+				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+					<!-- Indicators -->
+					<ol class="carousel-indicators" >
+						<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+
+					</ol>
+
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner" role="listbox">
+						<div class="item">
+							<img src="../img/tbtm/ksks1.jpg" alt="...">
+							<div class="carousel-caption">
+								...
+							</div>
+						</div>
+						<div class="item active">
+							<img src="../img/tbtm/555737bbad955.jpg" alt="...">
+							<div class="carousel-caption">
+								...
+							</div>
+						</div>
+						<div class="item">
+							<img src="../img/tbtm/594781cc80d85.jpg" alt="...">
+							<div class="carousel-caption">
+								...
+							</div>
+						</div>
+						<div class="item">
+							<img src="../img/tbtm/ksks2.jpg" alt="...">
+							<div class="carousel-caption">
+								...
+							</div>
+						</div>
+
+					</div>
+					<!-- Controls -->
+					<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+
+				<!--九宫格-->
+				<div id="jiugongge">
+
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<img src="../img/tbtm/5805f0ba98f4f.png" />
+						<div>美食</div>
+					</div>
+
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<img src="../img/tbtm/569600f2bb151.png" />
+						<div>首饰</div>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<img src="../img/tbtm/5696011029551.png" />
+						<div>绿植</div>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<img src="../img/tbtm/5695ffd10d9e3.png" />
+						<div>娱乐</div>
+					</div>
+					<div>&nbsp;</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<img src="../img/tbtm/5695f4aeb8a3f.png" />
+						<div>女装</div>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<img src="../img/tbtm/5695ff4d7bd96.png" />
+						<div>男装</div>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<img src="../img/tbtm/5695ff6d5b989.png" />
+						<div>内衣</div>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<img src="../img/tbtm/5695ff9b2eebd.png" />
+						<div>女鞋</div>
+					</div>
+				</div>
+
+				<div>&nbsp;</div>
+
+				<div class="container-fluid" style="border-radius: 15px; height: 120px; background-color:#D7F5FD">
+					<div class="row">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ><p style="font-size: 25px; text-align: center; line-height: 50px; position: relative; top: 10px; color: #129800"><strong>酷米超市</strong></p></div>
+
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 " >
+							<img src="../img/tbtm/cs1.jpg" width="250px;"style="border-radius: 15px; position: relative; top: 5px;">
+						</div>
+
+					</div>
+
+				</div>
+				<div>&nbsp;</div>
+
+				<!--按钮排行-->
+				<div style="width:100%; justify-content: center; align-items: center; display: -webkit-flex;">
+					<div class="btn-group" role="group" aria-label="..." style="align-content: center">
+						<button type="button" class="btn btn-default">热度</button>
+						<button type="button" class="btn btn-default" v-on:click="sortBy('xiaoliang')">销量</button>
+						<button type="button" class="btn btn-default" v-on:click="sortBy('price')">价格</button>
+					</div>
+				</div>
+				<!--主页商品展示-->
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production" v-for="x in newinfo">
+					<div class="image"><img v-bind:src="x.src" /></div>
+					<div class="content">
+						<h4>{{x.name}}</h4>
+						<span>{{x.remark}}</span>
+						<p style="color:#FF4600; ">{{x.start}}</p>
+						<span style="color:#FF4600; font-size: 18px;"><strong>¥{{x.price}}</strong></span>&nbsp;&nbsp;&nbsp;
+						<span style="text-decoration:line-through; font-size: 14px;">¥{{x.price2}}</span>
+						<span style=";font-size: 14px; position: relative; left: 40px; ">已售:{{x.xiaoliang}} </span>
+					</div>
+				</div>
+
+
+
+				<div>&nbsp;</div>
+				<div>&nbsp;</div>
+
+
+
+
+
+
+			</div>
+		</script>
+
+		<!--第二个界面-->
+		<script type="text/x-template" id='info'>
+			<div>
+				<!--头部-->
+				<div id="header">
+					<img src="../images/k2.png" style="position:relative; left: -110px; top: 5px;"/>
+					<span style="position:relative; left: -10px; top: 5px;"><strong>酷米商城</strong></span>
+
+					<nav class="navbar navbar-default navbar-fixed-top">
+						<div class="container-fluid">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<img src="../images/rl.png" style="position:relative; left: -160px; top: 10px;"/>
+								<a class="navbar-brand" href="#"><span style="position:relative; left: 130px; "><strong>每日精选</strong></span></a>
+							</div>
+
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li class="active"><a href="#">品质优选 <span class="sr-only">(current)</span></a></li>
+									<li><a href="#">有你喜欢</a></li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">历史记录 <span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li><a href="#">美食</a></li>
+											<li><a href="#">游玩</a></li>
+											<li><a href="#">欢乐购</a></li>
+
+										</ul>
+									</li>
+								</ul>
+								<form class="navbar-form navbar-left">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="酷米搜">
+									</div>
+									<button type="submit" class="btn btn-default">搜索</button>
+								</form>
+								<ul class="nav navbar-nav navbar-right">
+
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">关于理财 <span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li><a href="#">股票</a></li>
+											<li><a href="#">证券交易</a></li>
+											<li><a href="#">酷米信用</a></li>
+
+										</ul>
+									</li>
+									<li><a href="#">小提示</a></li>
+								</ul>
+							</div><!-- /.navbar-collapse -->
+						</div><!-- /.container-fluid -->
+					</nav>
+				</div>
+
+				<!--轮播图-->
+				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+					<!-- Indicators -->
+					<ol class="carousel-indicators" >
+						<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+
+					</ol>
+
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner" role="listbox">
+						<div class="item">
+							<img src="../img/tbtm/ksks1.jpg" alt="...">
+							<div class="carousel-caption">
+								...
+							</div>
+						</div>
+						<div class="item active">
+							<img src="../img/tbtm/ksks2.jpg" alt="...">
+							<div class="carousel-caption">
+								...
+							</div>
+						</div>
+						<div class="item">
+							<img src="../img/tbtm/555737bbad955.jpg" alt="...">
+							<div class="carousel-caption">
+								...
+							</div>
+						</div>
+						<div class="item">
+							<img src="../img/tbtm/594781cc80d85.jpg" alt="...">
+							<div class="carousel-caption">
+								...
+							</div>
+						</div>
+
+					</div>
+					<!-- Controls -->
+					<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+
+				<!--九宫格-->
+				<div id="jiugongge">
+
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<img src="../images/dyy.png" />
+						<div>电影</div>
+					</div>
+
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<img src="../images/js.png" />
+						<div>健身</div>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<img  src="../images/jd.png" />
+						<div>酒店</div>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<img src="../images/gw.png" />
+						<div>购物</div>
+					</div>
+					<div>&nbsp;</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<img src="../images/qz.png" />
+						<div>亲子</div>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<img src="../images/wm.png" />
+						<div>外卖</div>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<img src="../images/px.png" />
+						<div>培训</div>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<img src="../images/ly.png" />
+						<div>旅游</div>
+					</div>
+					<div>&nbsp;</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<img src="../images/ylc.png" />
+						<div>游乐场</div>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<img src="../images/jz.png" />
+						<div>家装</div>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<img src="../images/fw.png" />
+						<div>服务</div>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<img src="../images/KTV.png" />
+						<div>KTV</div>
+					</div>
+				</div>
+				<br>
+
+				<!--用户happy show-->
+
+				<div id="show1">
+					<h3 style="text-align: center;">每日happy show</h3>
+
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ck" style="margin-left: 12px;">
+						<div style="color:#FF6904"><strong>神券欢乐送</strong></div>
+						<div style="border: 1px #FB2C11 solid; border-radius: 10px; text-align: center; position: relative;top: 5px;">任你吃></div>
+						<img src="../images/ms1.png" style="position: relative;left: 12px; top: 10px;"/>
+
+					</div>
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ck" style="margin-left: 12px;">
+						<div style="color:#FF6904; text-align: center"><strong>豪华大奖</strong></div>
+						<div style="border: 1px #FB2C11 solid; border-radius: 10px; text-align: center; position: relative;top: 5px;">任你吃></div>
+						<img src="../images/xync.png" style="position: relative;left: 12px; top: 10px;"/>
+					</div>
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ck" style="margin-left: 12px;">
+						<div style="color:#FF6904"><strong>显示五折抢</strong></div>
+						<div style="border: 1px #FB2C11 solid; border-radius: 10px; text-align: center; position: relative;top: 5px;">任你吃></div>
+						<img src="../images/dz.png" style="position: relative;left: 12px; top: 10px;"/>
+					</div>
+				</div>
+
+				<h3 style="text-align: center">--------------猜你喜欢--------------</h3>
+
+
+
+				<!--菜单式标签-->
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production" v-for="x in newinfo">
+					<div class="image"><img v-bind:src="x.src" /></div>
+					<div class="content">
+						<h4>{{x.name}}</h4>
+						<span>{{x.remark}}</span>
+						<p style="color:#FF4600; ">{{x.start}}</p>
+						<span style="color:#FF4600; font-size: 18px;"><strong>¥{{x.price}}</strong></span>&nbsp;&nbsp;&nbsp;
+						<span style="text-decoration:line-through; font-size: 14px;">¥{{x.price2}}</span>
+						<span style=";font-size: 14px; position: relative; left: 40px; ">已售:{{x.xiaoliang}} </span>
+					</div>
+				</div>
+
+
+
+
+
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production">
+					<div class="image"><img src="../img/tbtm/xc.jpg" /></div>
+					<div class="content">
+						<h4>Shook!  & Restaurant</h4>
+						<span>[外滩]三道式午市套餐,建议单人使用</span>
+						<p style="color:#FF4600; ">★★★★★</p>
+						<span style="color:#FF4600; font-size: 18px;"><strong>¥298</strong></span>&nbsp;&nbsp;&nbsp;
+						<span style="text-decoration:line-through; font-size: 14px;">¥598</span>
+						<span style=";font-size: 14px; position: relative; left: 40px; ">已售 3585</span>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production">
+					<div class="image"><img src="../img/tbtm/mx.jpg" /></div>
+					<div class="content">
+						<h4>八道湾热气羊肉火锅</h4>
+						<span>[上南地区]秘制羊腿烧烤套餐,建议3-4人食用</span>
+						<p style="color:#FF4600; ">★★★★★</p>
+						<span style="color:#FF4600; font-size: 18px;"><strong>¥199</strong></span>&nbsp;&nbsp;&nbsp;
+						<span style="text-decoration:line-through; font-size: 14px;">¥310</span>
+						<span style=";font-size: 14px; position: relative; left: 40px; ">已售 5585</span>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production">
+					<div class="image"><img src="../img/tbtm/sxc.jpg" /></div>
+					<div class="content">
+						<h4>书亦烧仙草</h4>
+						<span>[支持在线下单]特色饮品三选一</span>
+						<p style="color:#FF4600; ">★★★★★</p>
+						<span style="color:#FF4600; font-size: 18px;"><strong>¥12.5</strong></span>&nbsp;&nbsp;&nbsp;
+						<span style="text-decoration:line-through; font-size: 14px;">¥25</span>
+						<span style=";font-size: 14px; position: relative; left: 40px; ">已售 35585</span>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production">
+					<div class="image"><img src="../img/tbtm/dyg.jpg" /></div>
+					<div class="content">
+						<h4>萨瓦迪卡泰式餐厅</h4>
+						<span>[上南地区]特色泰国套餐,建议4人食用</span>
+						<p style="color:#FF4600; ">★★★★★</p>
+						<span style="color:#FF4600; font-size: 18px;"><strong>¥198</strong></span>&nbsp;&nbsp;&nbsp;
+						<span style="text-decoration:line-through; font-size: 14px;">¥298</span>
+						<span style=";font-size: 14px; position: relative; left: 40px; ">已售 10485</span>
+					</div>
+				</div>
+
+
+
+
+
+				<div>&nbsp;</div>
+				<div>&nbsp;</div>
+			</div>
+		</script>
+
+
+		<!--第三个界面-->
+		<script type="text/x-template" id='goumai'>
+			<div>
+				<!--头部-->
+				<div id="header">
+					<img src="../images/ks1.png" style="position:relative; left: -110px; top: 5px;"/>
+					<span style="position:relative; left: -10px; top: 5px;"><strong>酷米商城</strong></span>
+
+					<nav class="navbar navbar-default navbar-fixed-top">
+						<div class="container-fluid">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<img src="../images/ks1.png" style="position:relative; left: -160px; top: 10px;"/>
+								<a class="navbar-brand" href="#"><span style="position:relative; left: 130px; "><strong>玩家交流</strong></span></a>
+							</div>
+
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li class="active"><a href="#">品质优选 <span class="sr-only">(current)</span></a></li>
+									<li><a href="#">有你喜欢</a></li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">历史记录 <span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li><a href="#">美食</a></li>
+											<li><a href="#">游玩</a></li>
+											<li><a href="#">欢乐购</a></li>
+
+										</ul>
+									</li>
+								</ul>
+								<form class="navbar-form navbar-left">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="酷米搜">
+									</div>
+									<button type="submit" class="btn btn-default">搜索</button>
+								</form>
+								<ul class="nav navbar-nav navbar-right">
+
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">关于理财 <span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li><a href="#">股票</a></li>
+											<li><a href="#">证券交易</a></li>
+											<li><a href="#">酷米信用</a></li>
+
+										</ul>
+									</li>
+									<li><a href="#">小提示</a></li>
+								</ul>
+							</div><!-- /.navbar-collapse -->
+						</div><!-- /.container-fluid -->
+					</nav>
+				</div>
+
+
+					<!--菜单式标签-->
+				<div class="content">
+
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active" style="margin-left: 8px; width: 80px; text-align: center; font-size: 14px; font-weight: bold"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">享美食</a></li>
+						<li role="presentation" style="margin-left: 10px; width: 80px; text-align: center; font-size: 14px; font-weight: bold"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">住酒店</a></li>
+						<li role="presentation"  style="margin-left: 10px; width: 80px; text-align: center; font-size: 14px;font-weight: bold"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">爱玩乐</a></li>
+						<li role="presentation"  style="margin-left: 10px; width: 80px; text-align: center; font-size: 14px;font-weight: bold"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">爽购物</a></li>
+
+
+					</ul>
+
+					<!-- Tab panes -->
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane active" id="home">
+							<!--第一个卡-->
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production">
+									<div class="image"><img src="../img/tbtm/xc.jpg" /></div>
+									<div class="content">
+										<h4>Shook!  & Restaurant</h4>
+										<span>[外滩]三道式午市套餐,建议单人使用</span>
+										<p style="color:#FF4600; ">★★★★★</p>
+										<span style="color:#FF4600; font-size: 18px;"><strong>¥298</strong></span>&nbsp;&nbsp;&nbsp;
+										<span style="text-decoration:line-through; font-size: 14px;">¥598</span>
+										<span style=";font-size: 14px; position: relative; left: 40px; ">已售 3585</span>
+									</div>
+								</div>
+
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production">
+									<div class="image"><img src="../img/tbtm/mx.jpg" /></div>
+									<div class="content">
+										<h4>八道湾热气羊肉火锅</h4>
+										<span>[上南地区]秘制羊腿烧烤套餐,建议3-4人食用</span>
+										<p style="color:#FF4600; ">★★★★★</p>
+										<span style="color:#FF4600; font-size: 18px;"><strong>¥199</strong></span>&nbsp;&nbsp;&nbsp;
+										<span style="text-decoration:line-through; font-size: 14px;">¥310</span>
+										<span style=";font-size: 14px; position: relative; left: 40px; ">已售 5585</span>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production">
+									<div class="image"><img src="../img/tbtm/sxc.jpg" /></div>
+									<div class="content">
+										<h4>书亦烧仙草</h4>
+										<span>[支持在线下单]特色饮品三选一</span>
+										<p style="color:#FF4600; ">★★★★★</p>
+										<span style="color:#FF4600; font-size: 18px;"><strong>¥12.5</strong></span>&nbsp;&nbsp;&nbsp;
+										<span style="text-decoration:line-through; font-size: 14px;">¥25</span>
+										<span style=";font-size: 14px; position: relative; left: 40px; ">已售 35585</span>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production">
+									<div class="image"><img src="../img/tbtm/dyg.jpg" /></div>
+									<div class="content">
+										<h4>萨瓦迪卡泰式餐厅</h4>
+										<span>[上南地区]特色泰国套餐,建议4人食用</span>
+										<p style="color:#FF4600; ">★★★★★</p>
+										<span style="color:#FF4600; font-size: 18px;"><strong>¥198</strong></span>&nbsp;&nbsp;&nbsp;
+										<span style="text-decoration:line-through; font-size: 14px;">¥298</span>
+										<span style=";font-size: 14px; position: relative; left: 40px; ">已售 10485</span>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production">
+									<div class="image"><img src="../img/tbtm/dyg.jpg" /></div>
+									<div class="content">
+										<h4>萨瓦迪卡泰式餐厅</h4>
+										<span>[上南地区]特色泰国套餐,建议4人食用</span>
+										<p style="color:#FF4600; ">★★★★★</p>
+										<span style="color:#FF4600; font-size: 18px;"><strong>¥198</strong></span>&nbsp;&nbsp;&nbsp;
+										<span style="text-decoration:line-through; font-size: 14px;">¥298</span>
+										<span style=";font-size: 14px; position: relative; left: 40px; ">已售 10485</span>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production">
+									<div class="image"><img src="../img/tbtm/sxc.jpg" /></div>
+									<div class="content">
+										<h4>书亦烧仙草</h4>
+										<span>[支持在线下单]特色饮品三选一</span>
+										<p style="color:#FF4600; ">★★★★★</p>
+										<span style="color:#FF4600; font-size: 18px;"><strong>¥12.5</strong></span>&nbsp;&nbsp;&nbsp;
+										<span style="text-decoration:line-through; font-size: 14px;">¥25</span>
+										<span style=";font-size: 14px; position: relative; left: 40px; ">已售 35585</span>
+									</div>
+								</div>
+								<div>&nbsp;</div>
+								<div>&nbsp;</div>
+							</div>
+
+						</div>
+
+						<!--第二个卡片-->
+						<div role="tabpanel" class="tab-pane" id="profile">
+							<div class="row " style="width: 100%">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production">
+									<div class="image"><img src="../img/tbtm/jd4.jpg" /></div>
+									<div class="content">
+										<h4>海月缤纷酒店</h4>
+										<span>[外滩]三道式午市套餐,建议单人使用</span>
+										<p style="color:#FF4600; ">★★★★★</p>
+										<span style="color:#FF4600; font-size: 18px;"><strong>¥298</strong></span>&nbsp;&nbsp;&nbsp;
+										<span style="text-decoration:line-through; font-size: 14px;">¥598</span>
+										<span style=";font-size: 14px; position: relative; left: 40px; ">已售 3585</span>
+									</div>
+								</div>
+
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production">
+									<div class="image"><img src="../img/tbtm/jd5.jpg" /></div>
+									<div class="content">
+										<h4>蒙奇奇主题公寓</h4>
+										<span>[上南地区]秘制羊腿烧烤套餐,建议3-4人食用</span>
+										<p style="color:#FF4600; ">★★★★★</p>
+										<span style="color:#FF4600; font-size: 18px;"><strong>¥199</strong></span>&nbsp;&nbsp;&nbsp;
+										<span style="text-decoration:line-through; font-size: 14px;">¥310</span>
+										<span style=";font-size: 14px; position: relative; left: 40px; ">已售 5585</span>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production">
+									<div class="image"><img src="../images/jd1.jpg" /></div>
+									<div class="content">
+										<h4>橡树林酒店</h4>
+										<span>[支持在线下单]特色饮品三选一</span>
+										<p style="color:#FF4600; ">★★★★★</p>
+										<span style="color:#FF4600; font-size: 18px;"><strong>¥12.5</strong></span>&nbsp;&nbsp;&nbsp;
+										<span style="text-decoration:line-through; font-size: 14px;">¥25</span>
+										<span style=";font-size: 14px; position: relative; left: 40px; ">已售 35585</span>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production">
+									<div class="image"><img src="../images/jd2.jpg" /></div>
+									<div class="content">
+										<h4>成都山海经青年旅社</h4>
+										<span>[上南地区]特色泰国套餐,建议4人食用</span>
+										<p style="color:#FF4600; ">★★★★★</p>
+										<span style="color:#FF4600; font-size: 18px;"><strong>¥198</strong></span>&nbsp;&nbsp;&nbsp;
+										<span style="text-decoration:line-through; font-size: 14px;">¥298</span>
+										<span style=";font-size: 14px; position: relative; left: 40px; ">已售 10485</span>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production">
+									<div class="image"><img src="../images/jd3.jpg" /></div>
+									<div class="content">
+										<h4>七天连锁酒店(倪家桥店)</h4>
+										<span>[上南地区]特色泰国套餐,建议4人食用</span>
+										<p style="color:#FF4600; ">★★★★★</p>
+										<span style="color:#FF4600; font-size: 18px;"><strong>¥198</strong></span>&nbsp;&nbsp;&nbsp;
+										<span style="text-decoration:line-through; font-size: 14px;">¥298</span>
+										<span style=";font-size: 14px; position: relative; left: 40px; ">已售 10485</span>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production">
+									<div class="image"><img src="../img/tbtm/sxc.jpg" /></div>
+									<div class="content">
+										<h4>书亦烧仙草</h4>
+										<span>[支持在线下单]特色饮品三选一</span>
+										<p style="color:#FF4600; ">★★★★★</p>
+										<span style="color:#FF4600; font-size: 18px;"><strong>¥12.5</strong></span>&nbsp;&nbsp;&nbsp;
+										<span style="text-decoration:line-through; font-size: 14px;">¥25</span>
+										<span style=";font-size: 14px; position: relative; left: 40px; ">已售 35585</span>
+									</div>
+								</div>
+								<div>&nbsp;</div>
+								<div>&nbsp;</div>
+
+
+							</div>
+						</div>
+
+						<!--第三个卡片-->
+						<div role="tabpanel" class="tab-pane" id="messages">
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production">
+									<div class="image"><img src="../images/kr.jpg" /></div>
+									<div class="content">
+										<h4>海月缤纷酒店</h4>
+										<span>[外滩]三道式午市套餐,建议单人使用</span>
+										<p style="color:#FF4600; ">★★★★★</p>
+										<span style="color:#FF4600; font-size: 18px;"><strong>¥298</strong></span>&nbsp;&nbsp;&nbsp;
+										<span style="text-decoration:line-through; font-size: 14px;">¥598</span>
+										<span style=";font-size: 14px; position: relative; left: 40px; ">已售 3585</span>
+									</div>
+								</div>
+
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production">
+									<div class="image"><img src="../images/l1.jpg" /></div>
+									<div class="content">
+										<h4>蒙奇奇主题公寓</h4>
+										<span>[上南地区]秘制羊腿烧烤套餐,建议3-4人食用</span>
+										<p style="color:#FF4600; ">★★★★★</p>
+										<span style="color:#FF4600; font-size: 18px;"><strong>¥199</strong></span>&nbsp;&nbsp;&nbsp;
+										<span style="text-decoration:line-through; font-size: 14px;">¥310</span>
+										<span style=";font-size: 14px; position: relative; left: 40px; ">已售 5585</span>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production">
+									<div class="image"><img src="../images/l2.jpg" /></div>
+									<div class="content">
+										<h4>橡树林酒店</h4>
+										<span>[支持在线下单]特色饮品三选一</span>
+										<p style="color:#FF4600; ">★★★★★</p>
+										<span style="color:#FF4600; font-size: 18px;"><strong>¥12.5</strong></span>&nbsp;&nbsp;&nbsp;
+										<span style="text-decoration:line-through; font-size: 14px;">¥25</span>
+										<span style=";font-size: 14px; position: relative; left: 40px; ">已售 35585</span>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production">
+									<div class="image"><img src="../images/l6.jpg" /></div>
+									<div class="content">
+										<h4>成都山海经青年旅社</h4>
+										<span>[上南地区]特色泰国套餐,建议4人食用</span>
+										<p style="color:#FF4600; ">★★★★★</p>
+										<span style="color:#FF4600; font-size: 18px;"><strong>¥198</strong></span>&nbsp;&nbsp;&nbsp;
+										<span style="text-decoration:line-through; font-size: 14px;">¥298</span>
+										<span style=";font-size: 14px; position: relative; left: 40px; ">已售 10485</span>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production">
+									<div class="image"><img src="../images/jd1.jpg" /></div>
+									<div class="content">
+										<h4>七天连锁酒店(倪家桥店)</h4>
+										<span>[上南地区]特色泰国套餐,建议4人食用</span>
+										<p style="color:#FF4600; ">★★★★★</p>
+										<span style="color:#FF4600; font-size: 18px;"><strong>¥198</strong></span>&nbsp;&nbsp;&nbsp;
+										<span style="text-decoration:line-through; font-size: 14px;">¥298</span>
+										<span style=";font-size: 14px; position: relative; left: 40px; ">已售 10485</span>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production">
+									<div class="image"><img src="../images/js1.jpeg" /></div>
+									<div class="content">
+										<h4>书亦烧仙草</h4>
+										<span>[支持在线下单]特色饮品三选一</span>
+										<p style="color:#FF4600; ">★★★★★</p>
+										<span style="color:#FF4600; font-size: 18px;"><strong>¥12.5</strong></span>&nbsp;&nbsp;&nbsp;
+										<span style="text-decoration:line-through; font-size: 14px;">¥25</span>
+										<span style=";font-size: 14px; position: relative; left: 40px; ">已售 35585</span>
+									</div>
+								</div>
+								<div>&nbsp;</div>
+								<div>&nbsp;</div>
+
+
+							</div>
+						</div>
+
+						<!--第四个卡片-->
+						<div role="tabpanel" class="tab-pane" id="settings">
+							<div class="row">
+
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production">
+									<div class="image"><img src="../images/xc.jpg" /></div>
+									<div class="content">
+										<h4>十音坊精品量贩KTV</h4>
+										<span>[外滩]三道式午市套餐,建议单人使用</span>
+										<p style="color:#FF4600; ">★★★★★</p>
+										<span style="color:#FF4600; font-size: 18px;"><strong>¥298</strong></span>&nbsp;&nbsp;&nbsp;
+										<span style="text-decoration:line-through; font-size: 14px;">¥598</span>
+										<span style=";font-size: 14px; position: relative; left: 40px; ">已售 3585</span>
+									</div>
+								</div>
+
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production">
+									<div class="image"><img src="../images/dg1.jpg" /></div>
+									<div class="content">
+										<h4>静雅推拿</h4>
+										<span>[上南地区]秘制羊腿烧烤套餐,建议3-4人食用</span>
+										<p style="color:#FF4600; ">★★★★★</p>
+										<span style="color:#FF4600; font-size: 18px;"><strong>¥199</strong></span>&nbsp;&nbsp;&nbsp;
+										<span style="text-decoration:line-through; font-size: 14px;">¥310</span>
+										<span style=";font-size: 14px; position: relative; left: 40px; ">已售 5585</span>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production">
+									<div class="image"><img src="../images/jd4.jpg" /></div>
+									<div class="content">
+										<h4>天堂电影院(私人影吧)</h4>
+										<span>[支持在线下单]特色饮品三选一</span>
+										<p style="color:#FF4600; ">★★★★★</p>
+										<span style="color:#FF4600; font-size: 18px;"><strong>¥12.5</strong></span>&nbsp;&nbsp;&nbsp;
+										<span style="text-decoration:line-through; font-size: 14px;">¥25</span>
+										<span style=";font-size: 14px; position: relative; left: 40px; ">已售 35585</span>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production">
+									<div class="image"><img src="../images/l1.jpg" /></div>
+									<div class="content">
+										<h4>千艺美发工作室</h4>
+										<span>[上南地区]特色泰国套餐,建议4人食用</span>
+										<p style="color:#FF4600; ">★★★★★</p>
+										<span style="color:#FF4600; font-size: 18px;"><strong>¥198</strong></span>&nbsp;&nbsp;&nbsp;
+										<span style="text-decoration:line-through; font-size: 14px;">¥298</span>
+										<span style=";font-size: 14px; position: relative; left: 40px; ">已售 10485</span>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production">
+									<div class="image"><img src="../images/js1.jpeg" /></div>
+									<div class="content">
+										<h4>美联社(省体育馆店)</h4>
+										<span>[上南地区]特色泰国套餐,建议4人食用</span>
+										<p style="color:#FF4600; ">★★★★★</p>
+										<span style="color:#FF4600; font-size: 18px;"><strong>¥198</strong></span>&nbsp;&nbsp;&nbsp;
+										<span style="text-decoration:line-through; font-size: 14px;">¥298</span>
+										<span style=";font-size: 14px; position: relative; left: 40px; ">已售 10485</span>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production">
+									<div class="image"><img src="../images/l6.jpg" /></div>
+									<div class="content">
+										<h4>学府主题K馆</h4>
+										<span>[支持在线下单]特色饮品三选一</span>
+										<p style="color:#FF4600; ">★★★★★</p>
+										<span style="color:#FF4600; font-size: 18px;"><strong>¥12.5</strong></span>&nbsp;&nbsp;&nbsp;
+										<span style="text-decoration:line-through; font-size: 14px;">¥25</span>
+										<span style=";font-size: 14px; position: relative; left: 40px; ">已售 35585</span>
+									</div>
+								</div>
+								<div>&nbsp;</div>
+								<div>&nbsp;</div>
+
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+
+
+
+
+
+
+			</div>
+		</script>
+
+
+		<!--第四个界面-->
+		<script type="text/x-template" id='wode'>
+			<div>
+
+				<!--头部-->
+				<div id="header">
+					<img src="../images/ks1.png" style="position:relative; left: -110px; top: 5px;"/>
+					<span style="position:relative; left: -10px; top: 5px;"><strong>酷米商城</strong></span>
+
+					<nav class="navbar navbar-default navbar-fixed-top">
+						<div class="container-fluid">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<img src="../images/wx1.png" style="position:relative; left: -160px; top: 10px;"/>
+								<a class="navbar-brand" href="#"><span style="position:relative; left: 130px; "><strong>个人中心</strong></span></a>
+							</div>
+
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li class="active"><a href="#">品质优选 <span class="sr-only">(current)</span></a></li>
+									<li><a href="#">有你喜欢</a></li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">历史记录 <span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li><a href="#">美食</a></li>
+											<li><a href="#">游玩</a></li>
+											<li><a href="#">欢乐购</a></li>
+
+										</ul>
+									</li>
+								</ul>
+								<form class="navbar-form navbar-left">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="酷米搜">
+									</div>
+									<button type="submit" class="btn btn-default">搜索</button>
+								</form>
+								<ul class="nav navbar-nav navbar-right">
+
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">关于理财 <span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li><a href="#">股票</a></li>
+											<li><a href="#">证券交易</a></li>
+											<li><a href="#">酷米信用</a></li>
+
+										</ul>
+									</li>
+									<li><a href="#">小提示</a></li>
+								</ul>
+							</div><!-- /.navbar-collapse -->
+						</div><!-- /.container-fluid -->
+					</nav>
+				</div>
+
+				<!--个人-->
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production" style="background-color:#F0F0F0; border-radius: 10px; border: 1px #BDBDBD solid; ">
+					<div class=""><img src="../images/k3.png" style="position: relative; top: 28px;"/></div>
+					<div class="content" style="margin-left: 50px;">
+						<h3>酷米小子</h3>
+
+						<span style="color:#BDBDBD; font-size: 18px; position: absolute;">个人信息</span>
+						<span style="position: relative; left: 150px; top: -30px;font-size: 30px;">＞</span>
+					</div>
+				</div>
+
+				<!--九宫-->
+				<div id="jiugongge" style="position: relative;top: 20px;">
+
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 ">
+
+						<img src="../images/fk1.png" />
+						<div style="font-size: 17px;"><strong>待付款</strong></div>
+						<span class="badge" style="background-color: orangered; position: absolute; top: -0px; left: 70px;">2</span>
+					</div>
+
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						<img src="../images/pj.png" />
+						<div style="font-size: 17px;"><strong>待评价</strong></div>
+						<span class="badge" style="background-color: orangered; position: absolute; top: -0px; left: 70px;">5</span>
+					</div>
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						<img  src="../images/sh.png" />
+						<div style="font-size: 17px;"><strong>退款/售后</strong></div>
+					</div>
+					<div>&nbsp;</div>
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						<img src="../images/dd.png" />
+						<div style="font-size: 17px;"><strong>我的订单</strong></div>
+						<span class="badge" style="background-color: orangered; position: absolute; top: -0px; left: 70px;">7</span>
+					</div>
+
+
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						<img src="../images/kj.png" />
+						<div style="font-size: 17px;"><strong>卡卷</strong></div>
+					</div>
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						<img src="../images/jf.png" />
+						<div style="font-size: 17px;"><strong>积分</strong></div>
+						<span class="badge" style="background-color: orangered; position: absolute; top: -0px; left: 70px;">11</span>
+					</div>
+					<div>&nbsp;</div>
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						<img src="../images/ye.png" />
+						<div style="font-size: 17px;"><strong>余额</strong></div>
+					</div>
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						<img src="../images/xy.png" />
+						<div style="font-size: 17px;"><strong>信用支付</strong></div>
+						<span class="badge" style="background-color: orangered; position: absolute; top: -0px; left: 70px;">3</span>
+					</div>
+
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						<img src="../images/bx.png" />
+						<div style="font-size: 17px;"><strong>快递服务</strong></div>
+					</div>
+					<div>&nbsp;</div>
+
+				</div>
+
+				<!--单个栏目-->
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production" style="height: 70px; background-color:#FAFAFA; border-radius: 10px; border: 1px #BDBDBD solid; ">
+					<div class=""><img src="../images/fp.png" style="position: absolute; top: 15px;"/></div>
+					<div class="content" style="margin-left: 50px;">
+						<span style=" position: absolute; top: 20px; left: 90px;"><strong style="font-size: 18px;">关于发票</strong></span>
+						<span style="position: absolute; left: 290px; top: 10px;	font-size: 30px;">＞</span>
+						<span class="badge" style="position: absolute; left: 320px; top: 22px;">3</span>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production" style="height: 70px; background-color:#FAFAFA; border-radius: 10px; border: 1px #BDBDBD solid; margin: 0;">
+					<div class=""><img src="../images/lt.png" style="position: absolute; top: 15px;"/></div>
+					<div class="content" style="margin-left: 50px;">
+						<span style=" position: absolute; top: 20px; left: 90px;"><strong style="font-size: 18px;">社区论坛</strong></span>
+						<span style="position: absolute; left: 290px; top: 10px;	font-size: 30px;">＞</span>
+						<span class="badge" style="position: absolute; left: 320px; top: 22px;">12</span>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production" style="height: 70px; background-color:#FAFAFA; border-radius: 10px; border: 1px #BDBDBD solid;  margin: 0;">
+					<div class=""><img src="../images/zx.png" style="position: absolute; top: 15px;"/></div>
+					<div class="content" style="margin-left: 50px;">
+						<span style=" position: absolute; top: 20px; left: 90px;"><strong style="font-size: 18px;">在线服务</strong></span>
+						<span style="position: absolute; left: 290px; top: 10px;	font-size: 30px;">＞</span>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production" style="height: 70px; background-color:#FAFAFA; border-radius: 10px; border: 1px #BDBDBD solid; margin: 0; ">
+					<div class=""><img src="../images/sz.png" style="position: absolute; top: 15px;"/></div>
+					<div class="content" style="margin-left: 50px;">
+						<span style=" position: absolute; top: 20px; left: 90px;"><strong style="font-size: 18px;">更多设置</strong></span>
+						<span style="position: absolute; left: 290px; top: 10px;	font-size: 30px;">＞</span>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production" style="height: 70px; background-color:#FAFAFA; border-radius: 10px; border: 1px #BDBDBD solid; margin: 0; ">
+					<div class=""><img src="../images/hy.png" style="position: absolute; top: 15px;"/></div>
+					<div class="content" style="margin-left: 50px;">
+						<span style=" position: absolute; top: 20px; left: 90px;"><strong style="font-size: 18px;">会员中心</strong></span>
+						<span style="position: absolute; left: 290px; top: 10px;	font-size: 30px;">＞</span>
+						<span class="badge" style="position: absolute; left: 320px; top: 22px;">7</span>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production" style="height: 70px; background-color:#FAFAFA; border-radius: 10px; border: 1px #BDBDBD solid; margin: 0; ">
+					<div class=""><img src="../images/sc.png" style="position: absolute; top: 15px;"/></div>
+					<div class="content" style="margin-left: 50px;">
+						<span style=" position: absolute; top: 20px; left: 90px;"><strong style="font-size: 18px;">我的收藏</strong></span>
+						<span style="position: absolute; left: 290px; top: 10px;	font-size: 30px;">＞</span>
+						<span class="badge" style="position: absolute; left: 320px; top: 22px;">5</span>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production" style="height: 70px; background-color:#FAFAFA; border-radius: 10px; border: 1px #BDBDBD solid; margin: 0; ">
+					<div class=""><img src="../images/km.png" style="position: absolute; top: 15px;"/></div>
+					<div class="content" style="margin-left: 50px;">
+						<span style=" position: absolute; top: 20px; left: 90px;"><strong style="font-size: 18px;">关于酷米</strong></span>
+						<span style="position: absolute; left: 290px; top: 10px;	font-size: 30px;">＞</span>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 production" style="height: 70px; background-color:#FAFAFA; border-radius: 10px; border: 1px #BDBDBD solid;  margin: 0;">
+					<div class=""><img src="../images/tc.png" style="position: absolute; top: 15px;"/></div>
+					<div class="content" style="margin-left: 50px;">
+						<span style=" position: absolute; top: 20px; left: 90px;"><strong style="font-size: 18px;">退出当前</strong></span>
+						<span style="position: absolute; left: 290px; top: 10px;	font-size: 30px;">＞</span>
+					</div>
+				</div>
+
+				<div>&nbsp;</div>
+				<div>&nbsp;</div>
+
+
+
+
+			</div>
+		</script>
+		<script type="text/javascript">
+			//准备数据
+            var dd=[
+                {src:"../img/tbtm/dyg.jpg",
+                    name:"萨瓦迪卡泰式餐厅",
+					start:"★★★★★",
+                    remark:"[上南地区]特色泰国套餐,建议4人食用",
+                    price:368,
+                    price2:298,
+                    xiaoliang:10485
+                },
+                {src:"../img/tbtm/sxc.jpg",
+                    name:"书亦烧仙草",
+                    start:"★★★★★",
+                    remark:"[支持在线下单]特色饮品三选一",
+                    price:12.5,
+                    price2:25,
+                    xiaoliang:35585
+                },
+                {src:"../img/tbtm/xc.jpg",
+                    name:"Shook! & Restaurant",
+                    start:"★★★★★",
+                    remark:"[外滩]三道式午市套餐,建议单人使用",
+                    price:298,
+                    price2:598,
+                    xiaoliang:3585
+                },
+                {src:"../img/tbtm/mx.jpg",
+                    name:"八道湾热气羊肉火锅",
+                    start:"★★★★★",
+                    remark:"[上南地区]秘制羊腿烧烤套餐,建议3-4人食用",
+                    price:199,
+                    price2:310,
+                    xiaoliang:5585
+                },
+                {src:"../images/js1.jpeg",
+                    name:"蓝鲸健身工作室",
+                    start:"★★★★★",
+                    remark:"[会展中心]私人教练一对一",
+                    price:198,
+                    price2:600,
+                    xiaoliang:5433
+                }
+
+            ];
+            //................
+            const home = {
+                template: '#home',
+                data:function () {
+                    return {
+                        info:dd,
+                        isDesc:false,
+                        orBy:"price",
+                        query:"",
+                        isQuery:false
+                    }
+                },
+                computed:{
+                    newinfo:function () {
+
+                        if(this.isQuery){
+                            var list=[]
+                            for(var i=0;i<this.info.length;i++){
+                                if(this.info[i].name.indexOf(this.query)>-1){
+                                    list.push(this.info[i])
+                                }
+                            }
+                            this.isQuery=false
+                            return list;
+                        }else{
+                            var ss = this.info;
+                            //冒泡排序算法
+                            for(var i=1;i<ss.length;i++){
+                                for(var j=0;j<ss.length-i;j++){
+                                    if(this.isDesc){
+                                        if(ss[j][this.orBy]>ss[j+1][this.orBy]){
+
+                                            var k;
+                                            k = ss[j];
+                                            ss[j] = ss[j + 1];
+                                            ss[j + 1] = k;
+                                        }
+                                    }else{
+                                        if(ss[j][this.orBy]<ss[j+1][this.orBy]){
+
+                                            var k;
+                                            k = ss[j];
+                                            ss[j] = ss[j + 1];
+                                            ss[j + 1] = k;
+                                        }
+                                    }
+
+                                }
+                            }
+                            return ss;
+                        }
+
+
+                    }
+                },
+                methods:{
+                    sortBy:function (key) {
+                        this.isDesc=!this.isDesc
+                        this.orBy=key;
+
+                    },
+                    search:function () {
+                        this.isQuery=true
+                    }
+                }
+            }
+
+
+
+
+
+
+			/*定义路由组件*/
+			//可以从其他文件import进来
+//			const home = {
+//				template: '#home',
+//
+//
+//
+//			}
+			const info = {
+				template: '#info',
+                data:function () {
+                    return {
+                        info:dd,
+                        isDesc:false,
+                        orBy:"price",
+                        query:"",
+                        isQuery:false
+                    }
+                },
+                computed:{
+                    newinfo:function () {
+
+                        if(this.isQuery){
+                            var list=[]
+                            for(var i=0;i<this.info.length;i++){
+                                if(this.info[i].name.indexOf(this.query)>-1){
+                                    list.push(this.info[i])
+                                }
+                            }
+                            this.isQuery=false
+                            return list;
+                        }else{
+                            var ss = this.info;
+                            //冒泡排序算法
+                            for(var i=1;i<ss.length;i++){
+                                for(var j=0;j<ss.length-i;j++){
+                                    if(this.isDesc){
+                                        if(ss[j][this.orBy]>ss[j+1][this.orBy]){
+
+                                            var k;
+                                            k = ss[j];
+                                            ss[j] = ss[j + 1];
+                                            ss[j + 1] = k;
+                                        }
+                                    }else{
+                                        if(ss[j][this.orBy]<ss[j+1][this.orBy]){
+
+                                            var k;
+                                            k = ss[j];
+                                            ss[j] = ss[j + 1];
+                                            ss[j + 1] = k;
+                                        }
+                                    }
+
+                                }
+                            }
+                            return ss;
+                        }
+
+
+                    }
+                },
+                methods:{
+                    sortBy:function (key) {
+                        this.isDesc=!this.isDesc
+                        this.orBy=key;
+
+                    },
+                    search:function () {
+                        this.isQuery=true
+                    }
+                }
+
+			}
+
+
+
+			const goumai = {
+					template: '#goumai'
+				}
+			const wode = {
+					template:'#wode'
+			}
+
+
+				/*定义路由*/
+				//每个路由应该映射一个组件
+			const myroutes = [{
+					path: '/home',
+					component: home
+				}, {
+					path: '/info',
+					component: info
+				}, {
+					path: '/goumai',
+					component: goumai
+				}, {
+					path: '/wode',
+					component: wode
+				}]
+				/*创建router实例，然后传'routes'配置*/
+			const myr = new VueRouter({
+					routes: myroutes
+				})
+				/*创建和挂载根实例*/
+			const app = new Vue({
+				router: myr,
+				methods: {
+					show: function(num) {
+						if(num == 0) {
+							myr.push('home')
+						} else if(num == 1) {
+							myr.push('info')
+						} else if(num == 2) {
+							myr.push('goumai')
+						}else{
+							myr.push('wode')
+						}
+					}
+				}
+			}).$mount('#app')
+            myr.push("/home")
+			window.onload = app.show(0)
+		</script>
+		<script src="../js/js.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

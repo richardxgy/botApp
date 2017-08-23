@@ -1,0 +1,66 @@
+
+#header{
+	background: white;
+	text-align: center;
+	margin:0 auto;
+	margin-bottom: 20px;
+}
+#jiugongge{
+	margin-top:20px;
+	margin-bottom: 20px;
+}
+#jiugongge div{
+	text-align: center;
+}
+.production{
+	display:flex;
+	margin-top:10px;
+}
+.production .image{
+	flex: 1;
+}
+.production .content{
+	flex: 2;
+}
+.image img {
+	margin-right: 5px;
+	width:130px;
+}
+#nav{
+	position: fixed;
+	bottom: 0px;
+	background: white;
+	width:100%;
+	margin:0 ;
+}
+#nav ul{
+	width:100%;
+	text-align: center;
+	margin-left: 3px;
+
+}
+#nav li{
+	width:24%;
+}
+#produces{
+	height:40px;
+	margin-bottom: 40px;
+}
+
+#show1{
+	width:100%;
+	height: 160px;
+	background-color: #F9CC9D;
+	border-radius: 10px;
+}
+
+.ck{
+	width: 105px;
+	height: 110px;
+	background-color: white;
+
+}
+
+.sk{
+	margin-bottom: 5px;
+}
